@@ -1,13 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 
 function App() {
   const [count, setCount] = useState(0);
-  useEffect(() => {
-    document.title = "テスト";
-  });
   const onClickUp = () => {
     setCount(count + 1);
+    document.title = count;
   };
   const onClickDown = () => {
     setCount(count - 1);
