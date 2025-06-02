@@ -1,9 +1,8 @@
-import { useState } from "react";
 import "./App.css";
-
+import useHook from "./useHook";
 function App() {
-  const [fName, setFname] = useState("");
-  const [lName, setLname] = useState("");
+  const [lName, setLname] = useHook("");
+  const [fName, setFname] = useHook("");
 
   const onSubmit = () => {
     alert(`${fName} ${lName}`);
@@ -13,19 +12,11 @@ function App() {
       <form onSubmit={onSubmit}>
         <label>
           FirstName
-          <input
-            type="text"
-            value={fName}
-            onChange={(e) => setFname(e.target.value)}
-          />
+          <input type="text" {...setLname} />
         </label>
         <label>
           LastName
-          <input
-            type="text"
-            value={lName}
-            onChange={(e) => setLname(e.target.value)}
-          />
+          <input type="text" {...setFname} />
         </label>
         <button type="submit">送信</button>
       </form>
